@@ -1,0 +1,11 @@
+00-5      Nacht
+5-12      Ochtend
+  * **-** Zonsopkomst
+  * 08:00 Opstaan
+  * 08:30 Ontbijt
+12-18:00  Middag
+  * 12:30 Lunch
+18-00     Avond
+  * 17-20 Happy hour
+  * **-** Zonsondergang
+  * 22:30 Slapen
