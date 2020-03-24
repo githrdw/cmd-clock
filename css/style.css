@@ -3,18 +3,20 @@ html, body {
   width: 100%;
   height: 100%;
 }
+
 #container {
+  position: relative;
   height: 100%;
-  max-width: 425px;
+  max-width: 670px;
 }
 
 main {
-  position: relative;
-  top: 25%;
-  height: auto;
+  position: absolute;
+  bottom: 0;
+  height: 50%;
   width: 100%;
   display: block;
-  background-color:yellow;
+  background-color: yellow;
 }
 
 main #action-bar {
@@ -25,12 +27,58 @@ main #action-bar--mask {
   clip-path: url(#card-wave);
   background-color: white;
   position: relative;
-  top:-20px;
+  top: -20px;
   height: 150px;
   margin-bottom: -130px;
   width: 100%;
-  transition: height 2s;
 }
+
 svg.clipPath {
   position: absolute;
+}
+
+#clock {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  bottom: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#clock--frame {
+  position: relative;
+  display: block;
+  width: 50%;
+  padding-top: calc(50% - 15px);
+  margin-bottom: 30px;
+  border-radius: 50%;
+  background: red;
+  border: 5px solid black;
+}
+
+#clock--minute-hand, #clock--hour-hand {
+  display: block;
+  background: black;
+  transform-origin: 10px;
+  position: absolute;
+  margin-left: -10px;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+}
+
+#clock--minute-hand {
+  height: 5px;
+  width: 45%;
+  transform: rotate(15deg);
+  margin-top: -2.5px;
+}
+
+#clock--hour-hand {
+  height: 5px;
+  width: 25%;
+  transform: rotate(45deg);
+  margin-top: -2.5px;
 }
