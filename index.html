@@ -9,38 +9,38 @@
 </head>
 
 <body>
-  <section id="container">
-    <header id="time-animation">
-      <!-- Animating weather header -->
-    </header>
-    <section id="time">
-      <!-- Clock -->
-      <span id="clock">
-        <div id="clock--frame">a
-          <span id="clock--hour-hand"></span>
-          <span id="clock--minute-hand"></span>
-        </div>
-      </span>
-    </section>
-    <main>
-      <!-- Card -->
-      <nav id="action-bar">
-        <section id="action-bar--mask">
-          <span>Alarms</span>
-          <span>Settings</span>
-        </section>
-      </nav>
-      <section id="date">
-        <h1>20:50</h1>
-        <p>MAANDAG</p>
-        <p>21 MAART</p>
+  <div id="app">
+    <section id="container">
+      <header id="time-animation">
+        <!-- Animating weather header -->
+      </header>
+      <section id="time">
+        <!-- Clock -->
+        <span id="clock">
+          <div id="clock--frame">
+            <span id="clock--hour-hand"></span>
+            <span id="clock--minute-hand"></span>
+          </div>
+        </span>
       </section>
-      <section id="alarm"></section>
-      <section id="alarm-animation"></section>
-      </div>
-
-  </section>
-
+      <main>
+        <!-- Card -->
+        <nav id="action-bar">
+          <section id="action-bar--mask">
+            <span>Alarms</span>
+            <span>Settings</span>
+          </section>
+        </nav>
+        <section id="date">
+          <h1>20:50</h1>
+          <p>MAANDAG</p>
+          <p>21 MAART</p>
+        </section>
+        <section id="alarm"></section>
+        <section id="alarm-animation"></section>
+      </main>
+    </section>
+  </div>
   <svg height="0" width="0" class="clipPath">
     <defs>
       <clipPath id="card-wave" transform="scale(0.01)" clipPathUnits="objectBoundingBox">
@@ -48,6 +48,20 @@
       </clipPath>
     </defs>
   </svg>
+  <script>
+    const hourHand = document.getElementById("clock--hour-hand")
+    const minuteHand = document.getElementById("clock--minute-hand")
+    function setClock() {
+      const time = new Date()
+      const minute = time.getMinutes()
+      const minutePos = 360 * (minute / 60)
+      const hour = time.getHours()
+      const hourPos = 360 * (hour / 12)
+      console.warn({ minute, minutePos, hour, hourPos })
+    }
+    setInterval(setClock, 10000)
+    setClock();
+  </script>
 </body>
 
 </html>
