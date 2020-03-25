@@ -1,7 +1,31 @@
+@keyframes movingCloud {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
 html, body {
   margin: 0 auto;
   width: 100%;
   height: 100%;
+  background: #de8f44;
+  background: -moz-linear-gradient(top, #de8f44 0%, #c4532b 44%, #832324 78%, #832324 78%, #2d1417 100%);
+  background: -webkit-linear-gradient(top, #de8f44 0%, #c4532b 44%, #832324 78%, #832324 78%, #2d1417 100%);
+  background: linear-gradient(to bottom, #de8f44 0%, #c4532b 44%, #832324 78%, #832324 78%, #2d1417 100%);
+}
+
+.cloud1 {
+  position: absolute;
+  left: 100%;
+  clip-path: url(#cloud1);
+  height: 50px;
+  width: 100px;
+  display: block;
+  background: white;
+  animation: movingCloud 10s infinite linear;
 }
 
 #app {
@@ -10,11 +34,18 @@ html, body {
   height: 100%;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+}
+
+@media only screen and (min-width: 670px) and (min-height: 670px) {
+  #container {
+    border-radius: 50%;
+  }
 }
 
 #container {
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1px white inset;
   height: 100%;
   width: 100%;
   max-width: 670px;
@@ -27,20 +58,16 @@ main {
   height: 50%;
   width: 100%;
   display: block;
-  background-color: yellow;
-}
-
-main #action-bar {
-  filter: drop-shadow(0px -3px 2px rgba(50, 50, 0, 0.2));
+  background-color: white;
+  filter: drop-shadow(0 0 5px rgba(50, 50, 0, 0.7));
 }
 
 main #action-bar--mask {
   clip-path: url(#card-wave);
   background-color: white;
-  position: relative;
-  top: -20px;
-  height: 150px;
-  margin-bottom: -130px;
+  position: absolute;
+  top: -19px;
+  height: 160px;
   width: 100%;
 }
 
@@ -48,9 +75,15 @@ svg.clipPath {
   position: absolute;
 }
 
+#time {
+  display: flex;
+  justify-content: center;
+}
+
 #clock {
   height: 100%;
   width: 100%;
+  max-width: 400px;
   position: absolute;
   bottom: 50%;
   display: flex;
@@ -65,31 +98,30 @@ svg.clipPath {
   padding-top: 50%;
   margin-bottom: 30px;
   border-radius: 50%;
-  background: red;
-  border: 5px solid black;
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
 }
 
 #clock--minute-hand, #clock--hour-hand {
-  display: block;
-  background: black;
-  transform-origin: 10px;
   position: absolute;
-  margin-left: -10px;
+  display: block;
   top: 50%;
   left: 50%;
+  margin-left: -3px;
+  margin-top: -1px;
+  background: white;
+  transform-origin: 6px;
   border-radius: 10px;
 }
 
 #clock--minute-hand {
-  height: 5px;
+  height: 2px;
   width: 45%;
   transform: rotate(15deg);
-  margin-top: -2.5px;
 }
 
 #clock--hour-hand {
-  height: 5px;
+  height: 2px;
   width: 25%;
   transform: rotate(45deg);
-  margin-top: -2.5px;
 }

@@ -6,30 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.iconify.design/1/1.0.4/iconify.min.js" defer></script>
+  <script src="js/clock.js" defer></script>
 </head>
 
 <body>
   <div id="app">
     <section id="container">
       <header id="time-animation">
+        <span class="cloud cloud1"></span>
         <!-- Animating weather header -->
       </header>
       <section id="time">
         <!-- Clock -->
         <span id="clock">
-          <div id="clock--frame">
+          <span id="clock--frame">
             <span id="clock--hour-hand"></span>
             <span id="clock--minute-hand"></span>
-          </div>
+          </span>
         </span>
       </section>
       <main>
         <!-- Card -->
         <nav id="action-bar">
-          <section id="action-bar--mask">
-            <span>Alarms</span>
-            <span>Settings</span>
-          </section>
+          <section id="action-bar--mask"></section>
+          <span class="iconify medium" data-icon="mdi:bell-plus"></span>
+          <span class="iconify medium" data-icon="mdi:cog"></span>
         </nav>
         <section id="date">
           <h1>20:50</h1>
@@ -46,22 +48,12 @@
       <clipPath id="card-wave" transform="scale(0.01)" clipPathUnits="objectBoundingBox">
         <path d="m 0 0 h 15 c 17.5,0 17.5,10 35,10 c 17.5,0 17.5,-10 35,-10 h 15 v 12.5 h -100 z" />
       </clipPath>
+      <clipPath id="cloud1" clipPathUnits="objectBoundingBox">
+        <path
+          d="m0.64,0.192 c-0.051,0,-0.092,0.033,-0.126,0.085 C0.468,0.117,0.378,0.008,0.273,0.008 C0.125,0.008,0.004,0.235,0.004,0.508 c0,0.25,0.097,0.458,0.228,0.495 c0.008,0.005,0.018,0.005,0.026,0.005 c0,0,0.626,0,0.626,0 c0.064,0,0.121,-0.118,0.121,-0.236 c0,0,0,-0.009,0,-0.009 c0,-0.118,-0.056,-0.193,-0.121,-0.193 c0,0,-0.059,0,-0.059,0 c0,-0.014,0,-0.019,0,-0.028 c0,-0.189,-0.085,-0.349,-0.187,-0.349"/>
+      </clipPath>
     </defs>
   </svg>
-  <script>
-    const hourHand = document.getElementById("clock--hour-hand")
-    const minuteHand = document.getElementById("clock--minute-hand")
-    function setClock() {
-      const time = new Date()
-      const minute = time.getMinutes()
-      const minutePos = 360 * (minute / 60)
-      const hour = time.getHours()
-      const hourPos = 360 * (hour / 12)
-      console.warn({ minute, minutePos, hour, hourPos })
-    }
-    setInterval(setClock, 10000)
-    setClock();
-  </script>
 </body>
 
 </html>
